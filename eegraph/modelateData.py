@@ -3,7 +3,8 @@ from .strategy import *
 #Class that uses the Strategy Abstract class
 class ModelData: 
     def __init__(self, data, ch_names, strategy: Strategy):
-        self.raw_data = data.get_data()
+        if self not type(np.array):
+            self.raw_data = data.get_data()
         self.ch_names = ch_names
         self.num_channels = data.info['nchan']
         self.sample_rate = data.info['sfreq']
