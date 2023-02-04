@@ -572,7 +572,7 @@ def draw_graph(G, custom_position=custom_position):
     
     #Dictionary with all the possible electrode positions. 
     
-    if custom_position==False:
+    if custom_montage==False:
     
         pos = {'Cz': (0,0), 'C2h': (1.2,0), 'C2': (2.5,0), 'C4h': (3.85,0), 'C4': (5,0),'C6h': (6.20,0), 'C6': (7.6,0), 'T8h': (8.9,0), 'T8': (10.1,0), 'T10h': (11.3,0), 'T10': (12.75,0), 
                'C1h': (-1.2,0), 'C1': (-2.5,0), 'C3h': (-3.85,0), 'C3': (-5,0), 'C5h': (-6.20,0),'C5': (-7.6,0), 'T7h': (-8.9,0), 'T7': (-10.1,0), 'T9h': (-11.3,0), 'T9': (-12.75,0),
@@ -659,8 +659,8 @@ def draw_graph(G, custom_position=custom_position):
         for node in unwanted_nodes:
             G.remove_node(node)
 
-    elif custom_position == True:
-        pos = position_dictionary
+    elif custom_montage == True:
+        pos = custom_position
     
             
     nodes = G.nodes()
