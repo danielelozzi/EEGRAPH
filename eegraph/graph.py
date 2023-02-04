@@ -7,18 +7,16 @@ class Graph:
     def __init__(self):
         pass
         
-    def load_data(self, path, custom_montage, custom_position, exclude = [None],  electrode_montage_path = None):
+    def load_data(self, path,custom_montage,custom_position, exclude = [None],  electrode_montage_path = None):
         input_data = InputData(path, exclude)
         self.data = input_data.load()
         
         self.ch_names=self.data.ch_names
         if(electrode_montage_path):
             self.ch_names=input_data.set_montage(electrode_montage_path)
-        custom_montage = custom_montage
-        custom_position= custom_position
         
         input_data.display_info(self.ch_names)
-                
+        
 
     def modelate(self, window_size,custom_montage,custom_position, connectivity, bands = [None], threshold = None):
         print('\033[1m' + 'Model Data.' + '\033[0m')
@@ -40,3 +38,4 @@ class Graph:
         fig = draw_graph(graph,custom_montage, custom_position)
         fig.update_layout(title='', plot_bgcolor='white' ) 
         fig.write_image(str(name) + '.png', format='png',height=1000,width=1800)
+
