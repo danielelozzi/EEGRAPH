@@ -648,14 +648,7 @@ def draw_graph(G, custom_montage,custom_position):
                'T3': (-10.1,0), 'T4': (10.1,0), 'T5': (-8.10, -4.17), 'T6': (8.10, -4.17)
               }
 
-        nx.set_node_attributes(G, pos, 'pos')
-        nodes = G.nodes()
-        unwanted_nodes = []
 
-        for node in nodes:
-            if (node not in pos):
-                warnings.warn("Channel with label '" + node + "' is not a recognized electrode position. It will be ignored for visualization.")
-                unwanted_nodes.append(node)
 
 
         for node in unwanted_nodes:
@@ -663,6 +656,15 @@ def draw_graph(G, custom_montage,custom_position):
 
     elif custom_montage == True:
         pos = custom_position
+    
+    nx.set_node_attributes(G, pos, 'pos')
+    nodes = G.nodes()
+    unwanted_nodes = []
+
+    for node in nodes:
+        if (node not in pos):
+            warnings.warn("Channel with label '" + node + "' is not a recognized electrode position. It will be ignored for visualization.")
+            unwanted_nodes.append(node)
     
             
     nodes = G.nodes()
