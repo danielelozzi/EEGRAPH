@@ -18,7 +18,7 @@ class Graph:
         input_data.display_info(self.ch_names)
         
 
-    def modelate(self, window_size, connectivity, bands = [None], threshold = None):
+    def modelate(self, window_size, connectivity, bands = [None], threshold = None, custom_position = False):
         print('\033[1m' + 'Model Data.' + '\033[0m')
         print(search(connectivity_measures, connectivity))
         
