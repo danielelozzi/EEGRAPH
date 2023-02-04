@@ -3,8 +3,9 @@ from .strategy import *
 #Class that uses the Strategy Abstract class
 class ModelData: 
     def __init__(self, data, ch_names, strategy: Strategy):
-        if self not type(np.array):
-            self.raw_data = data.get_data()
+        self.raw_data = data.get_data()
+        if self.raw_data.ndim > 2:
+            self.raw_data = np.concatenate(self.raw_data,axis=1)
         self.ch_names = ch_names
         self.num_channels = data.info['nchan']
         self.sample_rate = data.info['sfreq']
