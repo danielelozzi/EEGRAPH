@@ -651,8 +651,7 @@ def draw_graph(G, custom_montage,custom_position):
 
 
 
-        for node in unwanted_nodes:
-            G.remove_node(node)
+        
 
     elif custom_montage == True:
         pos = custom_position
@@ -660,6 +659,9 @@ def draw_graph(G, custom_montage,custom_position):
     nx.set_node_attributes(G, pos, 'pos')
     nodes = G.nodes()
     unwanted_nodes = []
+    
+    for node in unwanted_nodes:
+            G.remove_node(node)
 
     for node in nodes:
         if (node not in pos):
