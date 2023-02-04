@@ -568,7 +568,7 @@ def draw_graph(G, custom_montage,custom_position):
     if False, use the position in the library
     if True, pass a dictionary with key as name and tuple of value as X, Y coordinates
     
-    update 3
+    update 4
     """
     directed = nx.is_directed(G)
     
