@@ -7,7 +7,7 @@ class Graph:
     def __init__(self):
         pass
         
-    def load_data(self, path, exclude = [None],  electrode_montage_path = None , custom_montage, custom_position):
+    def load_data(self, path, custom_montage, custom_position, exclude = [None],  electrode_montage_path = None):
         input_data = InputData(path, exclude)
         self.data = input_data.load()
         
@@ -20,7 +20,7 @@ class Graph:
         input_data.display_info(self.ch_names)
                 
 
-    def modelate(self, window_size, connectivity, bands = [None], threshold = None, custom_montage):
+    def modelate(self, window_size,custom_montage,custom_position, connectivity, bands = [None], threshold = None):
         print('\033[1m' + 'Model Data.' + '\033[0m')
         print(search(connectivity_measures, connectivity))
         
