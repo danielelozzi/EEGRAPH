@@ -649,10 +649,6 @@ def draw_graph(G, custom_montage,custom_position):
               }
 
 
-
-
-        
-
     elif custom_montage == True:
         pos = custom_position
     
@@ -660,15 +656,15 @@ def draw_graph(G, custom_montage,custom_position):
     nodes = G.nodes()
     unwanted_nodes = []
     
-    for node in unwanted_nodes:
-            G.remove_node(node)
-
     for node in nodes:
         if (node not in pos):
             warnings.warn("Channel with label '" + node + "' is not a recognized electrode position. It will be ignored for visualization.")
             unwanted_nodes.append(node)
     
-            
+    for node in unwanted_nodes:
+            G.remove_node(node)
+
+
     nodes = G.nodes()
     edges = G.edges()
     
