@@ -7,7 +7,7 @@ class Graph:
     def __init__(self):
         pass
         
-    def load_data(self, path, exclude = [None],  electrode_montage_path = None , custom_montage = custom_montage, custom_position= custom_position):
+    def load_data(self, path, exclude = [None],  electrode_montage_path = None , custom_montage, custom_position):
         input_data = InputData(path, exclude)
         self.data = input_data.load()
         
@@ -18,11 +18,9 @@ class Graph:
         custom_position= custom_position
         
         input_data.display_info(self.ch_names)
-        
-        return custom_montage, custom_position
                 
 
-    def modelate(self, window_size, connectivity, bands = [None], threshold = None, custom_position = False):
+    def modelate(self, window_size, connectivity, bands = [None], threshold = None, custom_montage):
         print('\033[1m' + 'Model Data.' + '\033[0m')
         print(search(connectivity_measures, connectivity))
         
@@ -32,13 +30,13 @@ class Graph:
         return connectivity_matrix, G
         
 
-    def visualize_html(self, graph, name, auto_open = True):
-        fig = draw_graph(graph)
+    def visualize_html(self, graph, name, custom_montage, custom_position, auto_open = True):
+        fig = draw_graph(graph,custom_montage, custom_position)
         fig.update_layout(title='', plot_bgcolor='white' ) 
         fig.write_html(str(name) + '_plot.html', auto_open=auto_open, default_height='100%', default_width='100%')
         
         
-    def visualize_png(self, graph, name):
-        fig = draw_graph(graph)
+    def visualize_png(self, graph, name, custom_montage, custom_position):
+        fig = draw_graph(graph,custom_montage, custom_position)
         fig.update_layout(title='', plot_bgcolor='white' ) 
         fig.write_image(str(name) + '.png', format='png',height=1000,width=1800)
