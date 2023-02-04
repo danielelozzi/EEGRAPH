@@ -7,15 +7,19 @@ class Graph:
     def __init__(self):
         pass
         
-    def load_data(self, path, exclude = [None],  electrode_montage_path = None , custom_montage=False, custom_position=[]):
+    def load_data(self, path, exclude = [None],  electrode_montage_path = None , custom_montage=False, custom_position= custom_position):
         input_data = InputData(path, exclude)
         self.data = input_data.load()
         
         self.ch_names=self.data.ch_names
         if(electrode_montage_path):
             self.ch_names=input_data.set_montage(electrode_montage_path)
+        custom_montage = custom_montage
+        custom_position= custom_position
         
         input_data.display_info(self.ch_names)
+        
+        return custom_montage, custom_position
                 
 
     def modelate(self, window_size, connectivity, bands = [None], threshold = None, custom_position = False):

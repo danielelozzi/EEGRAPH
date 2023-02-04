@@ -558,7 +558,7 @@ def single_channel_graph(data, ch_names, channels, percentage_threshold, bands=N
     return G, np.array(matrix)
         
         
-def draw_graph(G, custom_montage = custom_montage, custom_position=custom_position):
+def draw_graph(G, custom_montage = custom_montage, custom_position = custom_position):
     """Process to create the networkX graphs.
     Parameters
     ----------
