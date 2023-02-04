@@ -7,7 +7,7 @@ class Graph:
     def __init__(self):
         pass
         
-    def load_data(self, path, exclude = [None],  electrode_montage_path = None):
+    def load_data(self, path, exclude = [None],  electrode_montage_path = None , custom_montage=False):
         input_data = InputData(path, exclude)
         self.data = input_data.load()
         
