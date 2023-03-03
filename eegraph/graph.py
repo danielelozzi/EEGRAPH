@@ -34,8 +34,9 @@ class Graph:
         fig.write_html(str(name) + '_plot.html', auto_open=auto_open, default_height='100%', default_width='100%')
         
         
-    def visualize_png(self, graph, name, custom_montage, custom_position):
+    def visualize_png(self, graph, name, custom_montage, custom_position,format='png',height=1000,width=1800):
         fig = draw_graph(graph,custom_montage, custom_position)
         fig.update_layout(title='', plot_bgcolor='white' ) 
-        fig.write_image(str(name) + '.png', format='png',height=1000,width=1800)
+        extension = str('.'+format)
+        fig.write_image(str(name) + extension, format='png',height=1000,width=1800)
 
